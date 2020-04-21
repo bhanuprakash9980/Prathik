@@ -12,11 +12,7 @@ body{
 .animate{
 	text-align: center;
 }
-#three
-{   padding-top: 20px;
-	height: 80px;
 
-}
 #two{
 padding-top: 5px;
 }
@@ -183,6 +179,7 @@ padding-top: 100px;
 	background-color:#444;
 	color:white;
 }
+
 
 .close{
 	color:white;
