@@ -1,0 +1,9 @@
+const mongoose=require("mongoose");
+require("dotenv").config();
+const mongoDBErrors=require('mongoose-mongodb-errors');
+mongoose.Promise=global.Promise;
+mongoose.plugin(mongoDBErrors);
+mongoose.connect(process.env.MONGOURI,{ useNewUrlParser: true ,useUnifiedTopology: true })
+.then(() => console.log('MongoDB Connected'))
+  .catch(err => console.log(err));
+

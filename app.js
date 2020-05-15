@@ -1,16 +1,44 @@
 const express = require('express');
 const bodyParser=require('body-parser');
 const nodemailer=require('nodemailer');
+const mongoose=require("mongoose");
+const multer=require('multer');
+const path=require('path');
+require("dotenv").config();
+require("./mongo");
+
 const app = express();
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'ejs');
-
+//Models
+require('./model/Post');
+require('./model/comment');
 // Express body parser
+
+const Post=mongoose.model("Post");
+const Comment=mongoose.model("Comment");
+var x;
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, './public/uploads');
+  },
+  filename: function (req, file, cb) {
+    cb(null,x= file.fieldname + '-' + Date.now() +  path.extname(file.originalname))
+   
+  }
+});
+
+var upload = multer({ storage: storage });
+
+
 
 app.get('/',(req,res)=>{
     res.render('Pratik');
+});
+app.get('/'+process.env.secret,(req,res)=>{
+  res.render('enterposts');
 });
 app.get('/About',(req,res)=>{
     res.render('Aboutme');
@@ -66,6 +94,52 @@ let transporter = nodemailer.createTransport({
 
  
 });
+
+
+app.get("/blogs",async(req,res)=>{
+  
+    const posts=await Post.find({});
+   res.render('allposts',{posts:posts});
+
+});
+
+
+app.post("/", upload.single('myFile'),(req,res)=>{
+ 
+    const file = req.file;
+    if (!file) {
+      console.log('Please upload a file')
+  
+    }
+       const post =new Post();
+      post.title=req.body.title;
+      post.content=req.body.content;
+      post.photo=x;  
+   post.save();
+          
+    
+  res.redirect('/posts');
+  
+  });
+  app.post("/:postId/comment",async(req,res)=>{
+    //Find a post 
+    const post= await Post.findOne({_id:req.params.postId});
+    
+    //Create a comment
+    const comment = new Comment();
+    comment.content=req.body.content;
+    comment.post=post._id;
+    await comment.save();
+    //Associate Post with commentt
+    post.comments.push(comment._id);
+    await post.save();
+    res.send(comment);
+    });
+    app.get("/:postId/comment",async(req,res)=>{
+        const post= await Post.findOne({_id:req.params.postId}).populate("comments");
+res.send(post);
+});
+
 
 
 app.listen(80,()=>{
