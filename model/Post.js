@@ -4,10 +4,14 @@ const post_schema = new mongoose.Schema({
         type:String,
         required:"Title is Mandatory"
        },
-    content:{
+    desc:{
      type:String,
      required:"Content is mandatory"
     },
+   content:{
+        type:String,
+        // required:"Content is mandatory"
+       },
     photo:{
         type:String,
         required:"Photo is mandatory"

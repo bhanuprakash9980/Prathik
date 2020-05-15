@@ -223,3 +223,10 @@ padding-top: 100px;
 	object-fit: cover;
 	
 }
+a{
+	color: #000;
+}
+a:hover {
+	color: #444;
+	text-decoration-line: none;
+}

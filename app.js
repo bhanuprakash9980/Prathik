@@ -104,7 +104,7 @@ app.get("/blogs",async(req,res)=>{
 });
 
 
-app.post("/", upload.single('myFile'),(req,res)=>{
+app.post("/", upload.single('myFile'),async(req,res)=>{
  
     const file = req.file;
     if (!file) {
@@ -113,15 +113,21 @@ app.post("/", upload.single('myFile'),(req,res)=>{
     }
        const post =new Post();
       post.title=req.body.title;
+      post.desc=req.body.desc;
       post.content=req.body.content;
       post.photo=x;  
-   post.save();
+   await post.save();
           
     
-  res.redirect('/posts');
+  res.redirect('/blogs');
   
   });
-  app.post("/:postId/comment",async(req,res)=>{
+  app.get("/blogs/:postId",async(req,res)=>{
+    const post=await Post.findOne({_id:req.params.postId});
+    res.render('post',{post:post});
+  });
+
+  app.post("/blogs/:postId/comment",async(req,res)=>{
     //Find a post 
     const post= await Post.findOne({_id:req.params.postId});
     
@@ -135,7 +141,7 @@ app.post("/", upload.single('myFile'),(req,res)=>{
     await post.save();
     res.send(comment);
     });
-    app.get("/:postId/comment",async(req,res)=>{
+    app.get("/blogs/:postId/comment",async(req,res)=>{
         const post= await Post.findOne({_id:req.params.postId}).populate("comments");
 res.send(post);
 });
