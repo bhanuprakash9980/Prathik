@@ -61,8 +61,8 @@ let transporter = nodemailer.createTransport({
     port: 465,
     secure: true, // true for 465, false for other ports
     auth: {
-        user: 'rvceabfh@gmail.com', // generated ethereal user
-        pass: 'rvceabfh@123'  // generated ethereal password
+        user: process.env.USER, // generated ethereal user
+        pass: process.env.PASS // generated ethereal password
     },
     tls:{
       rejectUnauthorized:false
