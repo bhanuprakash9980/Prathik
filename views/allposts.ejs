@@ -68,7 +68,7 @@
  <div class="col-lg-4 col-md-2 col-xs-2">
      <a href="/blogs/<%=posts[i]._id %>"> 
        <div class="card" style="width: 18rem; margin:2rem;">
-        <img src="/uploads/<%= posts[i].photo %>" class="card-img-top" >
+        <img src="/uploads/<%= posts[i].photo[0] %>" class="card-img-top" >
         <div class="card-body">
           <h5 class="card-title"><%= posts[i].title %></h5>
           <p class="card-text"> <%= posts[i].desc %> </p>

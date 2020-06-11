@@ -19,13 +19,13 @@ require('./model/comment');
 
 const Post=mongoose.model("Post");
 const Comment=mongoose.model("Comment");
-var x;
+var x=[];
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, './public/uploads');
   },
   filename: function (req, file, cb) {
-    cb(null,x= file.fieldname + '-' + Date.now() +  path.extname(file.originalname))
+    cb(null,x.push( file.fieldname + '-' + Date.now() +  path.extname(file.originalname)))
    
   }
 });
@@ -57,17 +57,19 @@ const output=`
 
 `;
 let transporter = nodemailer.createTransport({
-    host: 'smtp.gmail.com',
-    port: 465,
-    secure: true, // true for 465, false for other ports
-    auth: {
-        user: process.env.USER, // generated ethereal user
-        pass: process.env.PASS // generated ethereal password
-    },
-    tls:{
-      rejectUnauthorized:false
-    }
-  });
+  host: 'smtp.gmail.com',
+  port: 465,
+  secure: true, // true for 465, false for other ports
+  auth: {
+      user: process.env.USER, // generated ethereal user
+      pass: process.env.PASS // generated ethereal password
+  },
+  tls:{
+    rejectUnauthorized:false
+  }
+});
+
+
 
   // setup email data with unicode symbols
   let mailOptions = {
@@ -104,10 +106,10 @@ app.get("/blogs",async(req,res)=>{
 });
 
 
-app.post("/", upload.single('myFile'),async(req,res)=>{
+app.post("/", upload.array('myFiles', 12),async(req,res)=>{
  
-    const file = req.file;
-    if (!file) {
+    const files = req.files;
+    if (!files) {
       console.log('Please upload a file')
   
     }
@@ -116,6 +118,7 @@ app.post("/", upload.single('myFile'),async(req,res)=>{
       post.desc=req.body.desc;
       post.content=req.body.content;
       post.photo=x;  
+      x=[];
    await post.save();
           
     
@@ -148,6 +151,6 @@ res.send(post);
 
 
 
-app.listen(80,()=>{
-    console.log("Server Started at http://localhost");
+app.listen(3000,()=>{
+    console.log("Server Started at http://localhost:3000");
 });

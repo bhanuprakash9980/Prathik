@@ -12,10 +12,10 @@ const post_schema = new mongoose.Schema({
         type:String,
         // required:"Content is mandatory"
        },
-    photo:{
+    photo:[{
         type:String,
         required:"Photo is mandatory"
-       },
+       }],
    
    
 comments:[{
