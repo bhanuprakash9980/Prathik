@@ -4,7 +4,6 @@ const nodemailer=require('nodemailer');
 const mongoose=require("mongoose");
 const multer=require('multer');
 const path=require('path');
-require("dotenv").config();
 require("./mongo");
 
 const app = express();
@@ -37,7 +36,7 @@ var upload = multer({ storage: storage });
 app.get('/',(req,res)=>{
     res.render('Pratik');
 });
-app.get('/'+process.env.secret,(req,res)=>{
+app.get('/9980dontsteel',(req,res)=>{
   res.render('enterposts');
 });
 app.get('/About',(req,res)=>{
@@ -61,8 +60,8 @@ let transporter = nodemailer.createTransport({
   port: 465,
   secure: true, // true for 465, false for other ports
   auth: {
-      user: process.env.USER, // generated ethereal user
-      pass: process.env.PASS // generated ethereal password
+      user: "tecsok.2020@gmail.com", // generated ethereal user
+      pass: "Tecsok@123" // generated ethereal password
   },
   tls:{
     rejectUnauthorized:false
