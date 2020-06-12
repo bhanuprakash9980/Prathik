@@ -15,7 +15,7 @@
 
 </head>
 
-<body>
+<body style="background-color: #fff;">
 
     <a class="btn btn-warning btn-sm" onclick="topFunction()" id="myBtn" title="Go to top" href="#" role="button"><i class="fas fa-arrow-circle-up"></i></a>
     <!-- Navbar -->
@@ -63,96 +63,66 @@
                 </div>
             </div>
     </nav>
-
-
-    <div class="jumbotron jumbotron-fluid  ">
-
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
-        <div class="jumbotron-background">
-            <img src="/images/1920x1080-dark-sea-green-solid-color-background.gif">
+<div class="container" style="padding-top:10%; padding-bottom: 10%;">
+     <h1 style="text-align: center; text-decoration: underline; ">Let's Work Together!</h1>
+     <p>&nbsp;</p>
+    <form id="letswork-form" action="/lets" method="POST">
+      
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Are You a business owner looking for marketing services ?</label>
+            <select class="form-control " id="exampleFormControlSelect1" name="looking" style="width: auto;" required>
+              <option selected>Please choose</option>
+              <option  value="Yes">Yes</option>
+              <option  value="No">No</option>
+             </select>
+          </div>
+        <div class="form-group">
+          <label for="exampleFormControlInput1">What is your Name?</label>
+          <input type="text" class="form-control" id="exampleFormControlInput1" name="Name" required>
         </div>
-
-        <div class="container container-fluid text-white" id="jumbo">
-            <h1 class="ml4">
-                <span class="letters letters-1">Making The Most Of Digital Era</span>
-                <span class="letters letters-2">Accelerate Your Marketing Game!</span>
-                <span class="letters letters-3">Fueling You With Sales</span>
-                <span class="letters letters-4">Making Your Business Go BOOM!!</span>
-                <span class="letters letters-5">Unleash Your Marketing Magic</span>
-            </h1>
-            <p style="text-align: right; padding-top: 100px; font-size: 30px;">-by Building brands with Purpose & Passion </p>
-            <img class="float-right" src="/images/PIC1.jpg" style="width:375px ; height: 375px; padding-left: 85px;">
-            <div id="content" style="padding-top: 30px; padding-left: 120px; padding-right: 200px; " class="text-wrap">
-                <h1>I Help Businesses Generate More sales Through Online Marketing & Paid Advertising.</h1>
-                <p class="lead">Are you a business owner wanting to increase your sales and make more money?</p>
-                <p class="lead">My name is Prathik and i help businesses generate more sales through paid advertising & online marketing..</p>
-
-            </div>
-
+        <div class="form-group">
+            <label for="exampleFormControlInput1">What is the name of your company?</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" name="name_company" required>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlInput1">What is the URL of your website?</label>
+            <input type="url" class="form-control" id="exampleFormControlInput1" name="website_url" placeholder="https://example.com"   >
+          </div>
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Describe your Business , Product Or Service</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="desc_comp" style="resize: none;"></textarea>
         </div>
+       
+        <div class="form-group">
+            <label for="exampleFormControlSelect2">What is your main Priority right now?</label>
+            <select class="form-control " id="exampleFormControlSelect2" name="priority" style="width: auto;" required>
+            <option selected>Please choose</option>
+              <option  value="Increasing Sales">Increasing Sales</option>
+              <option  value="Brand Awareness">Brand Awareness</option>
+              <option  value="Brand Awareness">Lead Generation</option>
+             </select>
+          </div>
+        <div class="form-group">
+            <label for="exampleFormControlInput1">What is your biggest hurdle currently?</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" name="hurdle" required>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlInput1">What is your Marketing Budget?</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" name="budjet" required>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlInput1">What is your Email ID?</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlInput1">What is your Contact number</label>
+            <input type="tel" class="form-control" id="exampleFormControlInput1" name="phone" required>
+          </div>
+        <input type="submit" value="submit" class="btn btn-primary btn-lg ">
+      </form>
+</div>    
 
-    </div>
-
-    <div class="container-fluid" id="con1" style="padding-bottom: 50px;">
-        <p class="lead" style="padding-bottom: 85px;"><strong id="st">ACCELERATE YOUR MARKETING GAME!!!</strong></p>
-        <img class="float-left" src="/images/PIC2.jpg" style="width:350px ; height: 300px; padding-right: 85px;">
-        <h1 class="lead" style="font-size: 40px;"><strong>ROI FOCUSSED PAID ADVERTISING & STRATERGY!</strong></h1>
-        <p style="font-size: 25px;">Want to increase your online sales? Apply to work with me for a RESULT DRIVEN done for you service that fuses world class products with exceptional marketing.</p>
-        <a class="btn btn-danger btn-lg" href="/letsworktogether" role="button">Let's Work Together!</a>
-
-
-        <h2 style="padding-top: 180px;">WHY DIGITAL MARKETING IS KEY FOR YOU TO DOMINATE YOUR INDUSTRY?</h2>
-
-        <div class="row" style="padding-top: 45px; padding-bottom:25px ;  text-align: center;">
-            <div class="col-lg-4 col-sm-6">
-                <img src="/images/Point1.png">
-                <h5>YOUR CUSTOMERS ARE ON SOCIAL MEDIA </h5>
-                <p>Regardless of what industry your company is in, your customers are using internet & social media on a daily basis. It is important that you keep them engaged and connected to your brand so that you’re always their first option.It gives
-                    the ability to interact with your prospects and learn exactly what they are looking for.</p>
-
-            </div>
-            <div class="col-lg-4 col-sm-6">
-                <img src="/images/Point2.png">
-                <h5>BETTER ROI FOR YOUR MARKETING INVESTMENT </h5>
-                <p>Digital marketing helps to generate a steady targeted traffic that converts into leads & sales.The more your business generates such steady traffic,the faster you will realize the ROI.</p>
-            </div>
-            <div class="col-lg-4 col-sm-6">
-                <img src="/images/Point3.png">
-                <h5> EARN PROSPECTS TRUST </h5>
-                <p>Digital marketing leverages on social media signals,social proofs and testimonials from actual customers who have previously purchased,joined or availed of a product or service marketed by a particular brand or business.</p>
-            </div>
-        </div>
-        <div class="row" style="padding-top: 45px; padding-bottom:25px ;  text-align: center;">
-            <div class="col-lg-4 col-sm-6">
-                <img src="/images/Point4.png">
-                <h5>There are people searching for your company.</h5>
-                <p>If your company is offering a product or service, you can bet that there are people talking about it and looking for companies that provide it.</p>
-            </div>
-            <div class="col-lg-4 col-sm-6">
-                <img src="/images/Point5.png">
-                <h5> The ability to reach a global marketplace </h5>
-                <p>In a progressive internet-enabled world, the significance of electronic advertising is undeniable.The approach gives you the advantage of getting to a relevant target market, conveniently as well as quicker, and to those that are most
-                    likely to buy your item or utilize your solution.Another advantage of online digital marketing is that your company comes to customers also after office hours.</p>
-            </div>
-            <div class="col-lg-4 col-sm-6">
-                <img src="/images/Point6.png">
-                <h5> ESTABLISHING BRAND REPUTATION </h5>
-                <p>For any business to survive the one thing that they really need to work upon is establishing a reputation that is impeccable.The importance of Digital marketing today lies in offering you multiple ways to establish a personal rapport with
-                    your customer base.Maintaining a positive brand reputation increases customer loyalty, builds confidence in the market and helps position you as a leader in your space.</p>
-            </div>
-        </div>
-    </div>
-
-
-    </div>
-    <div style="text-align: center; color:white; background-color: #8ebc8e; padding-bottom: 45px;">
-        <hr class="my-4">
-        <h1>Ready To Get started?</h1>
-        <p>YOUR BUSINESS DESERVES AN EXPERT WHO CAN GET YOU TO YOUR DESIRED STATE</p>
-        <a class="btn btn-danger btn-lg" href="/letsworktogether" role="button">Let's Work Together!</a>
-    </div>
-    <footer class="footer" style="background-color: #444; color: white;">
+    <footer class="footer" style="background-color: #444; color: white;  width: 100%;">
         <p style="text-align: center; padding-top: 30px;" class="font_8">This website is not a part of FACEBOOK or FACEBOOK INC.Aditionally this site is NOT endorsed by Facebook in any way.FACEBOOK is a trademark of FACEBOOK INC.</p>
         <nav class="navbar navbar-expand-lg navbar-dark  navbar-custom" id="three">
 
